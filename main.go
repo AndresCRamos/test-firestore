@@ -18,7 +18,8 @@ type TestData struct {
 
 func main() {
 	log.Print("starting server...")
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", HelloWorld)
+	http.HandleFunc("/firebase", handler)
 
 	// Determine port for HTTP service.
 	port := os.Getenv("PORT")
@@ -32,6 +33,10 @@ func main() {
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func HelloWorld(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Hello world")
 }
 
 func CRUD() {
@@ -111,5 +116,5 @@ func CRUD() {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	CRUD()
-	fmt.Fprint(w, "Hello world")
+	fmt.Fprint(w, "Firebase CRUD ended")
 }
