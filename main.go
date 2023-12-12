@@ -36,8 +36,9 @@ func main() {
 
 func CRUD() {
 	ctx := context.Background()
+	firebaseProject := os.Getenv("FIREBASE_PROJECT")
 	conf := &firebase.Config{
-		ProjectID: "test-firestore-ca8e7",
+		ProjectID: firebaseProject,
 	}
 	app, err := firebase.NewApp(ctx, conf)
 
