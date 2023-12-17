@@ -95,5 +95,6 @@ firebase-debug.log
 ui-debug.log
 **/firebase.json
 **/.firebaserc
+firestore.*
 
 .vscode
